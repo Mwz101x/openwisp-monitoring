@@ -134,7 +134,8 @@ class Ping(BaseCheck):
         """Figures out ip to use or fails raising OperationalError."""
         device = self.related_object
         ip = device.management_ip
-        if not ip and not app_settings.MANAGEMENT_IP_ONLY:
+        #if not ip and not app_settings.MANAGEMENT_IP_ONLY:
+        if not ip:
             ip = device.last_ip
         return ip
 
